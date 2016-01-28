@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Speech KITT</title>
+    <style>
+        body {
+            margin: 0 0;
+            padding: 0 0;
+        }
+        img#sample_site {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<script src="annyang.min.js"></script>
+<script src="speechkitt.min.js"></script>
+<script>
+    if (annyang) {
+
+        // Set annyang in debug mode
+        annyang.debug();
+
+        // Let's define a command.
+        var commands = {
+            'hello': function() { console.log('Hello world!'); }
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // Tell KITT to communicate with annyang
+        SpeechKITT.annyang();
+
+        // Define KITT's style
+        SpeechKITT.setStylesheet('../dist/themes/flat-orange.css');
+
+        // Add instructional texts
+        SpeechKITT.setInstructionsText('Some commands to try…');
+        SpeechKITT.setSampleCommands(['Show directions', 'Call restaurant']);
+
+        // If user clicks start button, remember his choice for 1 minute
+        SpeechKITT.rememberStatus(1);
+
+        // Render KITT's interface
+        SpeechKITT.vroom();
+    }
+</script>
+</body>
+</html>
