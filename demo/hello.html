@@ -1,0 +1,25 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.1.0/annyang.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+
+<script>
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'hello': function() { alert('Hello world!'); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+
+// Tell KITT to use annyang
+  SpeechKITT.annyang();
+
+SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
+
+  SpeechKITT.vroom();
+
+}
+</script>
